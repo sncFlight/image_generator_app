@@ -1,4 +1,4 @@
-# Magic Image Generator
+# Magic Image
 
 Flutter application demonstrating AI image generation with BLoC state management.
 
