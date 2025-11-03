@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _imageGenerationBloc = ImageGenerationBloc(MockApiService());
-    
+
     // init routes
     _router = GoRouter(
       initialLocation: '/',
@@ -57,7 +57,6 @@ class _MyAppState extends State<MyApp> {
     return BlocProvider.value(
       value: _imageGenerationBloc,
       child: MaterialApp.router(
-        title: 'AI Image Generator',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
@@ -66,7 +65,6 @@ class _MyAppState extends State<MyApp> {
             brightness: Brightness.light,
           ),
           scaffoldBackgroundColor: const Color(0xFFF8F9FA),
-          fontFamily: 'SF Pro Display',
         ),
         routerConfig: _router,
       ),

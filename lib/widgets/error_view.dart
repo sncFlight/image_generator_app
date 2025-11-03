@@ -23,30 +23,29 @@ class ErrorView extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: const Color(0xFFFF6B6B).withOpacity(0.1),
+                color: Colors.red.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
                 Icons.error_outline,
                 size: 64,
-                color: Color(0xFFFF6B6B),
+                color: Colors.red,
               ),
             ),
             const SizedBox(height: 24),
             Text(
               'Oops! Something went wrong',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: const Color(0xFF2D3436),
-              ),
+                    fontWeight: FontWeight.w600,
+                  ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               message,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: const Color(0xFF636E72),
-              ),
+                    color: Colors.blueGrey,
+                  ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 32),

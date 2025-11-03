@@ -23,16 +23,16 @@ class _PromptScreenState extends State<PromptScreen> {
   void initState() {
     super.initState();
     _controller = TextEditingController();
-    
+
     // Restore previous prompt if available
     final state = context.read<ImageGenerationBloc>().state;
     if (state is ImageGenerationSuccess || state is ImageGenerationError) {
-      _controller.text = state is ImageGenerationSuccess 
-          ? state.prompt 
+      _controller.text = state is ImageGenerationSuccess
+          ? state.prompt
           : (state as ImageGenerationError).prompt;
       _isButtonEnabled = _controller.text.trim().isNotEmpty;
     }
-    
+
     _controller.addListener(_onTextChanged);
   }
 
@@ -54,8 +54,8 @@ class _PromptScreenState extends State<PromptScreen> {
   void _onGenerate() {
     if (_controller.text.trim().isNotEmpty) {
       context.read<ImageGenerationBloc>().add(
-        GenerateImageEvent(_controller.text.trim()),
-      );
+            GenerateImageEvent(_controller.text.trim()),
+          );
       context.push('/result');
     }
   }
@@ -72,16 +72,15 @@ class _PromptScreenState extends State<PromptScreen> {
 
               // Header
               Text(
-                'AI Image Generator',
+                'Magic Image',
                 style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: const Color(0xFF2D3436),
-                ),
+                      fontWeight: FontWeight.bold,
+                    ),
                 textAlign: TextAlign.center,
               ),
 
               const Spacer(flex: 2),
-              
+
               // Input Field
               Container(
                 decoration: BoxDecoration(
@@ -89,19 +88,17 @@ class _PromptScreenState extends State<PromptScreen> {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
+                      color: Colors.black.withValues(alpha: 0.05),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
                   ],
                 ),
-                
                 child: TextField(
                   controller: _controller,
                   maxLines: 5,
                   style: const TextStyle(
                     fontSize: 16,
-                    color: Color(0xFF2D3436),
                   ),
                   decoration: InputDecoration(
                     hintText: 'Describe what you want to see...',
@@ -118,9 +115,9 @@ class _PromptScreenState extends State<PromptScreen> {
                   onSubmitted: (_) => _isButtonEnabled ? _onGenerate() : null,
                 ),
               ),
-              
-              const Spacer(flex: 2), 
-              
+
+              const Spacer(flex: 2),
+
               // Generate Button
               GradientButton(
                 onPressed: _isButtonEnabled ? _onGenerate : null,

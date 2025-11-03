@@ -19,13 +19,12 @@ class ResultScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF2D3436)),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
         title: const Text(
           'Result',
           style: TextStyle(
-            color: Color(0xFF2D3436),
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -71,7 +70,6 @@ class ResultScreen extends StatelessWidget {
             'Creating your image...',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w600,
-                  color: const Color(0xFF2D3436),
                 ),
           ),
           const SizedBox(height: 12),
@@ -80,7 +78,7 @@ class ResultScreen extends StatelessWidget {
             child: Text(
               state.prompt,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: const Color(0xFF636E72),
+                    color: Colors.blueGrey,
                   ),
               textAlign: TextAlign.center,
               maxLines: 3,
@@ -110,7 +108,7 @@ class ResultScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.15),
+                          color: Colors.black.withValues(alpha: 0.15),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
