@@ -22,7 +22,7 @@ Flutter application demonstrating AI image generation with BLoC state management
 
 ### Prerequisites
 
-- Flutter SDK 3.0+
+- Flutter SDK 3.35.7
 - Xcode (for iOS)
 - Android Studio (for Android)
 
